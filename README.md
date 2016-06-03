@@ -29,3 +29,34 @@
 вместо "д" распозналась "и" не стал. Тем более что оставшиеся три
 буквы распознались правильно =)
 ![Main](./data/images/main_algo.png)
+
+## Requirements
+
+* Python 3.4
+* matplotlib
+* numpy
+* scipy
+
+run:
+
+* python ./main.py
+* cd ./research/ && python main.py
+
+### windows
+Download and install python 3.4.* (add it to path during installation)
+
+Download numpy_mkl from: http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy
+for example: numpy-1.11.0+mkl-cp34-cp34m-win_amd64.whl
+
+Download *whl for your platform from here: http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy
+for example: scipy-0.17.1-cp34-cp34m-win_amd64.whl
+
+run command prompt as administrator:
+
+* pip install --upgrade pip
+* python -m pip install matplotlib
+* pip install "numpy-1.11.0+mkl-cp34-cp34m-win_amd64.whl"
+* pip install scipy-0.17.1-cp34-cp34m-win_amd64.whl
+
+### ubuntu
+sudo apt-get install python3.4 python3-matplotlib python3-scipy
