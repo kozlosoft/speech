@@ -1,4 +1,6 @@
+#! /usr/bin/python3
 # coding=UTF-8
+
 """
 Рисеч.
 В этой папке есть несколько звуковых файлов.
@@ -26,7 +28,6 @@ fft в контексте звука:
 * a2.wav - другая запись буквы а
 * b.wav - произнесенная буква б
 * b2.wav - другая запись буквы б
-
 """
 import matplotlib.pyplot as plt
 import numpy
@@ -72,9 +73,9 @@ def print_a1_vs_other_errors(spectrum_a1, spectrum_a2, spectrum_b1, spectrum_b2)
         overall_error_a1_b2 += abs(spectrum_a1[i] - spectrum_b2[i])
     overall_error_list = (overall_error_a1_a2, overall_error_a1_b1, overall_error_a1_b2)
     if overall_error_a1_a2 is min(overall_error_list):
-        print "overall error shows that a1 more like a2 than b\'s"
-        print "\terrors a1 vs a2, b1, b2: " + str(overall_error_list)
-        print ""
+        print ("overall error shows that a1 more like a2 than b\'s")
+        print ("\terrors a1 vs a2, b1, b2: " + str(overall_error_list))
+        print ("")
 
     # сравним а, но только на голосовом диапазоне
     human_voice_frequency_range = range(300, 3400)
@@ -87,19 +88,19 @@ def print_a1_vs_other_errors(spectrum_a1, spectrum_a2, spectrum_b1, spectrum_b2)
         human_voice_error_a1_b2 += abs(spectrum_a1[i] - spectrum_b2[i])
     human_voice_error_list = (human_voice_error_a1_a2, human_voice_error_a1_b1, human_voice_error_a1_b2)
     if human_voice_error_a1_a2 is min(human_voice_error_list):
-        print "human voice frequency range error shows that a1 more like a2 than b\'s"
-        print "\terrors a1 vs a2, b1, b2: " + str(human_voice_error_list)
+        print ("human voice frequency range error shows that a1 more like a2 than b\'s")
+        print ("\terrors a1 vs a2, b1, b2: " + str(human_voice_error_list))
 
+if __name__ == "__main__":
+    spectrum_a1 = generate_spectrum('a.wav')
+    spectrum_a2 = generate_spectrum('a2.wav')
+    spectrum_b1 = generate_spectrum('b.wav')
+    spectrum_b2 = generate_spectrum('b2.wav')
 
-spectrum_a1 = generate_spectrum('a.wav')
-spectrum_a2 = generate_spectrum('a2.wav')
-spectrum_b1 = generate_spectrum('b.wav')
-spectrum_b2 = generate_spectrum('b2.wav')
+    print_a1_vs_other_errors(spectrum_a1, spectrum_a2, spectrum_b1, spectrum_b2)
 
-print_a1_vs_other_errors(spectrum_a1, spectrum_a2, spectrum_b1, spectrum_b2)
-
-plt.plot(spectrum_a1, 'g')
-plt.plot(spectrum_a2, 'y')
-plt.plot(spectrum_b1, 'r')
-plt.plot(spectrum_b2, 'b')
-plt.show()
+    plt.plot(spectrum_a1, 'g')
+    plt.plot(spectrum_a2, 'y')
+    plt.plot(spectrum_b1, 'r')
+    plt.plot(spectrum_b2, 'b')
+    plt.show()
